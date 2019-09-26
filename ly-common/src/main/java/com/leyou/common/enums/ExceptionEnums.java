@@ -14,8 +14,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public enum ExceptionEnums {
 
-    PRICE_CANNOT_BE_NULL(400,"价格不能为空!"),
+    BRAND_NOT_FOUND(400,"品牌不存在"),
     CATEGORY_NOT_FOND(404,"商品分类没查到"),
+    BRAND_SAVE_ERROR(500,"服务器新增品牌失败"),
+    UPLOAD_FILE_ERROR(500,"文件上传失败"),
+    FILE_TYPE_NOT_ERROR(400,"文件类型不匹配"),
+    SPEC_GROUP_NOT_FOND(404,"商品规格组没查到"),
+    SPEC_PARAM_NOT_FOND(404,"商品规格参数没查到"),
+    GOODS_NOT_FOND(404,"商品不存在"),
+    GOODS_SAVE_TYPE(500,"新增商品失败"),
+    GOODS_DETAIL_NOT_FOND(404,"商品详情没有找到"),
+    GOODS_SKU_NOT_FOND(404,"商品SKU没有找到"),
+    GOODS_STOCK_NOT_FOND(404,"商品库存没找到"),
+    GOODS_UPDATE_ERROR(500,"商品修改失败"),
+    GOODS_ID_CANNOT_BE_NULL(400,"商品id不能为空"),
+
     ;
     private int code;
     private String msg;
