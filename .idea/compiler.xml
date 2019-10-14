@@ -12,10 +12,12 @@
         <module name="ly-item-interface" />
         <module name="ly-item-service" />
         <module name="ly-registry" />
+        <module name="ly-search" />
         <module name="ly-upload" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dwada" target="1.8" />
       <module name="leyou" target="1.8" />
       <module name="ly-common" target="1.8" />
       <module name="ly-gateway" target="1.8" />
@@ -23,6 +25,7 @@
       <module name="ly-item-interface" target="1.8" />
       <module name="ly-item-service" target="1.8" />
       <module name="ly-registry" target="1.8" />
+      <module name="ly-search" target="1.8" />
       <module name="ly-upload" target="1.8" />
     </bytecodeTargetLevel>
   </component>

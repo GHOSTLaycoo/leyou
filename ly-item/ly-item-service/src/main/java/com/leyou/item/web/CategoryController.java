@@ -23,9 +23,23 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    /**
+     * 根据父节点id查询商品分类
+     * @param pid
+     * @return
+     */
     @GetMapping("/list")
     public ResponseEntity<List<Category>> queryCategoryListByPid(@RequestParam("pid")Long pid){
-        System.out.println("1111");
         return ResponseEntity.ok(categoryService.queryCategoryListByPid(pid));
+    }
+
+    /**
+     * 根据cid查询品牌
+     * @param ids
+     * @return
+     */
+    @GetMapping("list/ids")
+    public ResponseEntity<List<Category>> queryCategoryByIds(@RequestParam("ids")List<Long> ids){
+        return ResponseEntity.ok(categoryService.queryByIds(ids));
     }
 }
