@@ -1,5 +1,7 @@
 package com.leyou.search.pojo;
 
+import java.util.Map;
+
 /**
  * @author GHOSTLaycoo
  * @date 2019/9/29 0029 - 下午 19:48
@@ -7,6 +9,7 @@ package com.leyou.search.pojo;
 public class SearchRequest {
     private String key;
     private Integer page;
+    private Map<String,String> filter;
 
     private static final int DEFAULT_SIZE = 20;
     private static final int DEFAULT_PAGE = 1;
@@ -35,4 +38,7 @@ public class SearchRequest {
         return DEFAULT_SIZE;
     }
 
+    public Map<String, String> getFilter() {
+        return filter;
+    }
 }

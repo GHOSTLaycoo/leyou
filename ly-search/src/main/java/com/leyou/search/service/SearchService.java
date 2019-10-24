@@ -17,6 +17,7 @@ import com.leyou.search.pojo.SearchResult;
 import com.leyou.search.repository.GoodsRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -176,6 +177,10 @@ public class SearchService {
 
 
     public PageResult<Goods> search(SearchRequest request) {
+        String key = request.getKey();
+        if(StringUtils.isBlank(key)){
+            return null;
+        }
         int page = request.getPage() - 1;
         int size = request.getSize();
 
@@ -189,7 +194,7 @@ public class SearchService {
         queryBuilder.withPageable(PageRequest.of(page,size));
 
         //2 过滤
-        QueryBuilder basicQuery = QueryBuilders.matchQuery("all", request.getKey());
+        QueryBuilder basicQuery = buildBasicQuery(request);
         queryBuilder.withQuery(basicQuery);
 
 
@@ -222,6 +227,22 @@ public class SearchService {
         }
 
         return new SearchResult(total,totalPages,goodsList,categories,brands,specs);
+    }
+
+    private QueryBuilder buildBasicQuery(SearchRequest request) {
+        BoolQueryBuilder queryBuilder = QueryBuilders.boolQuery();
+        queryBuilder.must(QueryBuilders.matchQuery("all",request.getKey()));
+        Map<String, String> map = request.getFilter();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            String key = entry.getKey();
+            //处理key
+            if(!"cid3".equals(key) && !"brandId".equals(key)){
+                key = "specs."+key+".keyword";
+            }
+            String value = entry.getValue();
+            queryBuilder.filter(QueryBuilders.termQuery(key,value));
+        }
+        return queryBuilder;
     }
 
     private List<Map<String,Object>> buildSpecificationAgg(Long cid, QueryBuilder basicQuery) {
