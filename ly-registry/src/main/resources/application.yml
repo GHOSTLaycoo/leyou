@@ -7,5 +7,5 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: false # 是否注册自己的信息到EurekaServer，默认是true
+    fetch-registry: false # 是否拉取其它服务的信息，默认是true
