@@ -175,6 +175,7 @@ public class GoodsService {
     public void updateGoods(Spu spu) {
         if(spu.getId()==null){
             throw new LyException(ExceptionEnums.GOODS_ID_CANNOT_BE_NULL);
+//            throw new LyException(ExceptionEnums.GOODS_UPDATE_ERROR);
         }
         Sku sku = new Sku();
         sku.setSpuId(spu.getId());
@@ -203,5 +204,19 @@ public class GoodsService {
         }
 
         saveSkuAndStock(spu);
+    }
+
+    public Spu querySpuById(Long id) {
+        //查询spu
+        Spu spu = spuMapper.selectByPrimaryKey(id);
+        if(spu==null){
+            throw new LyException(ExceptionEnums.GOODS_NOT_FOND);
+        }
+        //查询sku
+        spu.setSkus(querySkuBySpuId(id));
+
+        //查询detail
+        spu.setSpuDetail(queryDetailById(id));
+        return spu;
     }
 }
