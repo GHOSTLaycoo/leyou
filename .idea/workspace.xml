@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f67fd3b0-6ee2-4c65-91c5-6ed8ee820b28" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_10_1.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ly-common/ly-common.iml" afterPath="$PROJECT_DIR$/ly-common/ly-common.iml" />
-      <change beforePath="$PROJECT_DIR$/ly-common/pom.xml" afterPath="$PROJECT_DIR$/ly-common/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/ly-item/ly-item-interface/pom.xml" afterPath="$PROJECT_DIR$/ly-item/ly-item-interface/pom.xml" />
-    </list>
+    <list default="true" id="f67fd3b0-6ee2-4c65-91c5-6ed8ee820b28" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/ly-registry/target/" />
@@ -675,7 +669,7 @@
       <workItem from="1575944177327" duration="758000" />
       <workItem from="1575947597964" duration="1984000" />
       <workItem from="1576568425337" duration="2965000" />
-      <workItem from="1576717011378" duration="692000" />
+      <workItem from="1576717011378" duration="740000" />
     </task>
     <servers />
   </component>
@@ -712,7 +706,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128648000" />
+    <option name="totallyTimeSpent" value="128696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
