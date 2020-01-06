@@ -21,7 +21,7 @@ fdfs:
     width: 60
     height: 60
   tracker-list:
-    - 192.168.245.129:22122
+    - 192.168.98.128:22122
 
 ly:
   upload:

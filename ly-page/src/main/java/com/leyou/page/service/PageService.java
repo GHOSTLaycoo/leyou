@@ -1,6 +1,5 @@
 package com.leyou.page.service;
 
-import com.leyou.common.enums.ExceptionEnums;
 import com.leyou.item.pojo.*;
 import com.leyou.page.client.BrandClient;
 import com.leyou.page.client.CategoryClient;
@@ -13,13 +12,8 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author GHOSTLaycoo
@@ -54,8 +48,6 @@ public class PageService {
         List<Category> categories = categoryClient.queryCategoryByIds(Arrays.asList(spu.getCid1(), spu.getCid2(), spu.getCid3()));
         List<SpecGroup> specs = specClient.queryGroupByCid(spu.getCid3());
 
-
-
         model.put("title",spu.getTitle());
         model.put("subTitle",spu.getSubTitle());
         model.put("skus",skus);
@@ -63,6 +55,7 @@ public class PageService {
         model.put("brand",brand);
         model.put("categories",categories);
         model.put("specs",specs);
+
         return model;
     }
 
@@ -73,6 +66,11 @@ public class PageService {
 
         //输出流
         File dest = new File("D:\\software\\leyou", spuId + ".html");
+
+        if(dest.exists()){
+            dest.delete();
+        }
+
         try(PrintWriter writer = new PrintWriter(dest,"utf-8")){
             templateEngine.process("item",context,writer);
         }catch (Exception e){
@@ -81,15 +79,10 @@ public class PageService {
 
     }
 
-    public void updateHtml(Long spuId){
-        Context context = new Context();
-        context.setVariables(loadModel(spuId));
-
-        File de = new File("D:\\software\\leyou",spuId + ".html");
-        try(PrintWriter writer = new PrintWriter(de,"utf-8")){
-            templateEngine.process("item",context,writer);
-        }catch (Exception e){
-            log.error("[静态页服务] 生成静态页异常!",e);
+    public void deleteHtml(Long spuId) {
+        File dest = new File("D:\\software\\leyou", spuId + ".html");
+        if(dest.exists()){
+            dest.delete();
         }
     }
 }

@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/ly-registry/ly-registry.iml" filepath="$PROJECT_DIR$/ly-registry/ly-registry.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-search/ly-search.iml" filepath="$PROJECT_DIR$/ly-search/ly-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-upload/ly-upload.iml" filepath="$PROJECT_DIR$/ly-upload/ly-upload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lysms/lysms.iml" filepath="$PROJECT_DIR$/lysms/lysms.iml" />
     </modules>
   </component>
 </project>
