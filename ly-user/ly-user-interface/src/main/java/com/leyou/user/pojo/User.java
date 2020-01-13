@@ -27,7 +27,7 @@ public class User {
     @JsonIgnore
     private String password;// 密码
 
-    @Pattern(regexp = "^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\\\d{8}$",message = "手机号不正确")
+    @Pattern(regexp = "^1[0-9]{10}$",message = "手机号不正确")
     private String phone;// 电话
 
     private Date created;// 创建时间

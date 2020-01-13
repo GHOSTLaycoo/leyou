@@ -2,6 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ly-auth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ly-auth/ly-auth-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ly-auth/ly-auth-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ly-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ly-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ly-item" charset="UTF-8" />
@@ -14,6 +17,9 @@
     <file url="file://$PROJECT_DIR$/ly-user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ly-user/ly-user-interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ly-user/ly-user-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lyauth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lyauth/ly-auth-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lyauth/ly-auth-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lysms" charset="UTF-8" />
   </component>
 </project>

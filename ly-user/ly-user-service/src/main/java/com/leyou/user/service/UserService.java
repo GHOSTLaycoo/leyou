@@ -1,7 +1,7 @@
 package com.leyou.user.service;
 
-import com.leyou.common.enums.ExceptionEnums;
 import com.leyou.common.exception.LyException;
+import com.leyou.common.enums.ExceptionEnums;
 import com.leyou.common.utils.NumberUtils;
 import com.leyou.user.mapper.UserMapper;
 import com.leyou.user.pojo.User;
@@ -92,7 +92,6 @@ public class UserService {
         if(!StringUtils.equals(user.getPassword(),CodecUtils.md5Hex(password,user.getSalt()))){
             throw new LyException(ExceptionEnums.INVALID_VERIFY_PASSWORD);
         }
-
         return user;
     }
 }

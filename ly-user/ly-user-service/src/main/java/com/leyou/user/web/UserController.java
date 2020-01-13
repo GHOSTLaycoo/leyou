@@ -58,6 +58,12 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    /**
+     * 根据用户名和密码查询用户
+     * @param username
+     * @param password
+     * @return
+     */
     @GetMapping("/query")
     public ResponseEntity<User> queryUserByUserNameAndPassword(
            @RequestParam("username") String username,
