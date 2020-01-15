@@ -22,9 +22,7 @@ eureka:
   instance:
     prefer-ip-address: true
     ip-address: 127.0.0.1
-    instance-id: ${eureka.instance.ip-address}.${server.port}
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 15
+
 
 mybatis:
   type-aliases-package: com.leyou.user.pojo

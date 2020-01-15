@@ -2,13 +2,19 @@ package com.leyou.auth.controller;
 
 import com.leyou.auth.config.JwtProperties;
 import com.leyou.auth.service.AuthService;
+import com.leyou.common.enums.ExceptionEnums;
+import com.leyou.common.exception.LyException;
+import com.leyou.common.pojo.UserInfo;
 import com.leyou.common.utils.CookieUtils;
+import com.leyou.common.utils.JwtUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -44,6 +50,30 @@ public class AuthController {
                 ()*60);
 
         return ResponseEntity.ok().build();
+    }
+
+    /**
+     * 效验用户登录状态
+     * @return
+     */
+    @GetMapping("verify")
+    public ResponseEntity<UserInfo> verify(@CookieValue("LY_TOKEN")String token,HttpServletRequest request,
+                                           HttpServletResponse response){
+        if(StringUtils.isBlank(token)){
+            throw new LyException(ExceptionEnums.LIN_AUTHORIZED);
+        }
+        //解析token
+        try {
+            UserInfo info = JwtUtils.getInfoFromToken(token, jwtProperties.getPublicKey());
+            //刷新token
+            String newToken = JwtUtils.generateToken(info, jwtProperties.getPrivateKey(), jwtProperties.getExpire());
+            CookieUtils.setCookie(request,response,this.jwtProperties.getCookieName(),newToken,this.jwtProperties.getExpire
+                    ()*60);
+            //已登录,返回用户信息
+            return ResponseEntity.ok(info);
+        } catch (Exception e) {
+            throw new LyException(ExceptionEnums.LIN_AUTHORIZED);
+        }
     }
 
 }

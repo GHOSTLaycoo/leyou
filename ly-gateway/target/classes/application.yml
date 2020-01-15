@@ -14,6 +14,8 @@ zuul:
     search-service: /search/**
     user-service: /user/**
     auth-service: /auth/**
+    cart-service: /cart/**
+    order-service: /order/**
 
     upload-service:
       path: /upload/**
@@ -34,3 +36,16 @@ ribbon:
   ReadTimeout: 60000 # ribbon读取超时时长
   MaxAutoRetries: 0 # 当前服务重试次数
   MaxAutoRetriesNextServer: 0  # 切换服务重试次数
+ly:
+  jwt:
+    pubKeyPath: C:\\tmp\\rsa\\rsa.pub # 公钥地址
+    cookieName: LY_TOKEN
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
+
